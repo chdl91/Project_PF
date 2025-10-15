@@ -18,15 +18,18 @@ This project is intended to:
 > We learn a lot of material in this semester that is crucial to our further education. This can be overwhelming or even frightening. The material is spread over various Moodles / Inside FHNW, which is chaotic.
 
 **Scenario**
-> To enhance the learning process we aim to crate a catalouge of questions which will be presented as a quiz to prepare for our assesment exams. The quiz will be asking questions from different subjects and in differing grades of diffuculty. Additionaly the type of questions will vary between mulitple choice, True/False and open text.
+> To enhance the learning process we aim to crate a catalouge of questions which will be presented as a quiz to prepare for our assesment exams. The quiz will be asking questions from different subjects and in differing grades of diffuculty. Additionaly the type of questions will vary between mulitple choice, True/False and open text. The Answers will be validated and give an indication of right or wrong and will also show an explanation. At the end of the quiz, the user will see their results on a leaderboard with a given score related to it.
 
 
 **User stories:**
-1. As a user, I want to answer different questions to different topics.
-2. As a user, I want to have my progress and achievements saved.
-3. As a user, I want to create a username
-4. As a user, I want a point counter/final grade/percentage presented.
-5. As a user, I want to see a leaderboard.
+1. As a user, I want to answer different questions to different topics, in order to learn a broad variety of topics.
+2. As a user, I want to have my progress and achievements saved, in order to track my achievenments.
+3. As a user, I want to create a username, in order to identify myself.
+4. As a user, I want a point counter/final grade/percentage presented, in order to check my performance.
+5. As a user, I want to see a leaderboard, in order to compare my results to other users.
+6. As an Admin, I want to add and remove questions, in order to keep the quiz relevant.
+7. As an Admin, I want to modify the userbase and leaderboards, in order to remove redundant data.
+
 
 **Use cases:**
 - Answer Questions (from database.txt)
