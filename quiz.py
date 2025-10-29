@@ -10,7 +10,7 @@ DIB_data = json.load(DIB_json)
 # "Validate" Function to check the Quiz Answers if right or wrong.
 
 
-def Validate():
+def validate():
     pass
 
 
