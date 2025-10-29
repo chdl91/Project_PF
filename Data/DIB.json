@@ -1,0 +1,168 @@
+"Digital_Business": [
+  {
+    "question": "What best defines 'Digital Transformation' in business?",
+    "options": {
+      "A": "Introducing new employees",
+      "B": "Using digital technologies to fundamentally change business processes and value creation",
+      "C": "Upgrading office equipment",
+      "D": "Outsourcing IT services"
+    },
+    "answer": "B",
+    "explanation": "Digital transformation involves integrating digital technologies into all business areas, changing operations and customer value delivery."
+  },
+  {
+    "question": "Which technology is central to automating business processes in digital business models?",
+    "options": {
+      "A": "Blockchain",
+      "B": "Robotic Process Automation (RPA)",
+      "C": "3D Printing",
+      "D": "Virtual Reality"
+    },
+    "answer": "B",
+    "explanation": "RPA automates repetitive tasks, improving efficiency and accuracy in digital workflows."
+  },
+  {
+    "question": "In the context of e-business, what does 'disintermediation' refer to?",
+    "options": {
+      "A": "Adding more intermediaries",
+      "B": "Removing intermediaries between producers and consumers",
+      "C": "Creating new distribution channels",
+      "D": "Increasing data security"
+    },
+    "answer": "B",
+    "explanation": "Disintermediation removes middlemen, allowing direct producer-to-consumer interaction through digital platforms."
+  },
+  {
+    "question": "What is the main characteristic of a 'platform business model'?",
+    "options": {
+      "A": "Owning and selling physical products",
+      "B": "Facilitating interactions between producers and consumers",
+      "C": "Hiring a large number of employees",
+      "D": "Investing in manufacturing"
+    },
+    "answer": "B",
+    "explanation": "Platform models, like Uber or Airbnb, create value by enabling interactions between two or more user groups."
+  },
+  {
+    "question": "Which component is part of the 'Business Informatics' discipline according to Weber et al.?",
+    "options": {
+      "A": "Only computer science",
+      "B": "Only economics",
+      "C": "Integration of computer science and business administration",
+      "D": "Psychology and law"
+    },
+    "answer": "C",
+    "explanation": "Business informatics integrates IT and business to optimize processes and decision-making."
+  },
+  {
+    "question": "What is the main advantage of cloud computing for businesses?",
+    "options": {
+      "A": "Decreased scalability",
+      "B": "High upfront costs",
+      "C": "Flexibility and cost-efficiency",
+      "D": "Reduced collaboration"
+    },
+    "answer": "C",
+    "explanation": "Cloud computing enables scalable, flexible, and cost-efficient IT resource management."
+  },
+  {
+    "question": "Which term describes data-driven decision-making in digital businesses?",
+    "options": {
+      "A": "Intuitive management",
+      "B": "Business analytics",
+      "C": "Data silos",
+      "D": "Random forecasting"
+    },
+    "answer": "B",
+    "explanation": "Business analytics uses data collection and analysis to support informed decision-making."
+  },
+  {
+    "question": "Which of the following best defines an ERP system?",
+    "options": {
+      "A": "A standalone accounting software",
+      "B": "A system that integrates all core business processes into a unified platform",
+      "C": "A marketing automation tool",
+      "D": "A social media management app"
+    },
+    "answer": "B",
+    "explanation": "ERP systems integrate finance, HR, supply chain, and other core processes into one system for better coordination."
+  },
+  {
+    "question": "Which technology enables secure, transparent transactions without a central authority?",
+    "options": {
+      "A": "Blockchain",
+      "B": "Machine Learning",
+      "C": "IoT",
+      "D": "Big Data"
+    },
+    "answer": "A",
+    "explanation": "Blockchain uses distributed ledgers to ensure transparency and security in digital transactions."
+  },
+  {
+    "question": "What is a key risk associated with digital business models?",
+    "options": {
+      "A": "Reduced data security and privacy concerns",
+      "B": "Higher customer satisfaction",
+      "C": "Improved scalability",
+      "D": "Enhanced flexibility"
+    },
+    "answer": "A",
+    "explanation": "Digital business models often face increased cybersecurity and data privacy risks."
+  },
+  {
+    "question": "Which of the following is an example of a Business-to-Consumer (B2C) digital model?",
+    "options": {
+      "A": "SAP selling software to companies",
+      "B": "Amazon selling products to individuals",
+      "C": "Intel supplying chips to manufacturers",
+      "D": "A wholesaler selling to retailers"
+    },
+    "answer": "B",
+    "explanation": "B2C models involve direct sales to consumers, as seen with Amazon or Netflix."
+  },
+  {
+    "question": "What is a digital twin?",
+    "options": {
+      "A": "A virtual replica of a physical object or process",
+      "B": "A duplicate website",
+      "C": "A pair of identical databases",
+      "D": "A type of cloud backup"
+    },
+    "answer": "A",
+    "explanation": "Digital twins simulate real-world assets digitally for monitoring and optimization."
+  },
+  {
+    "question": "What does 'Interoperability' mean in business informatics?",
+    "options": {
+      "A": "The ability of systems to exchange and use information effectively",
+      "B": "A focus on data storage only",
+      "C": "Restricting access between systems",
+      "D": "Using incompatible software"
+    },
+    "answer": "A",
+    "explanation": "Interoperability ensures systems and organizations can work together seamlessly through shared data."
+  },
+  {
+    "question": "Which layer of digital infrastructure handles data storage and processing?",
+    "options": {
+      "A": "Application layer",
+      "B": "Data layer",
+      "C": "Network layer",
+      "D": "Presentation layer"
+    },
+    "answer": "B",
+    "explanation": "The data layer manages databases, storage, and processing necessary for digital applications."
+  },
+  {
+    "question": "What is the main benefit of digital ecosystems?",
+    "options": {
+      "A": "Reduced collaboration between companies",
+      "B": "Enhanced cooperation and value creation through interconnected platforms",
+      "C": "Higher barriers to entry",
+      "D": "Limited data sharing"
+    },
+    "answer": "B",
+    "explanation": "Digital ecosystems enable collaboration among multiple players, fostering innovation and shared value."
+  }
+]
+}

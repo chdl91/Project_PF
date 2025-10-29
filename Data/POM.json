@@ -1,0 +1,168 @@
+{
+  "Principles_of_Management": [
+    {
+      "question": "Which of the following best describes the primary function of management?",
+      "options": {
+        "A": "Performing technical tasks",
+        "B": "Achieving organizational goals through planning, organizing, leading, and controlling",
+        "C": "Managing financial transactions only",
+        "D": "Supervising employees' daily routines"
+      },
+      "answer": "B",
+      "explanation": "Management primarily involves achieving organizational goals efficiently through the four functions: planning, organizing, leading, and controlling."
+    },
+    {
+      "question": "According to Henri Fayol, which of the following is NOT one of the 14 principles of management?",
+      "options": {
+        "A": "Division of work",
+        "B": "Unity of command",
+        "C": "Espirit de corps",
+        "D": "Profit maximization"
+      },
+      "answer": "D",
+      "explanation": "Fayol’s 14 principles include division of work, authority, discipline, unity of command, and esprit de corps, but not profit maximization."
+    },
+    {
+      "question": "What is the main focus of the 'controlling' function in management?",
+      "options": {
+        "A": "Recruiting new employees",
+        "B": "Monitoring performance and taking corrective actions",
+        "C": "Developing long-term goals",
+        "D": "Encouraging teamwork"
+      },
+      "answer": "B",
+      "explanation": "Controlling ensures that actual performance meets desired standards by monitoring and making necessary adjustments."
+    },
+    {
+      "question": "Who is known as the 'Father of Scientific Management'?",
+      "options": {
+        "A": "Henri Fayol",
+        "B": "Elton Mayo",
+        "C": "Frederick W. Taylor",
+        "D": "Max Weber"
+      },
+      "answer": "C",
+      "explanation": "Frederick W. Taylor introduced scientific management, emphasizing efficiency and standardization of work processes."
+    },
+    {
+      "question": "In Maslow’s hierarchy of needs, which need is at the top?",
+      "options": {
+        "A": "Safety needs",
+        "B": "Esteem needs",
+        "C": "Physiological needs",
+        "D": "Self-actualization"
+      },
+      "answer": "D",
+      "explanation": "Self-actualization represents achieving one's full potential and is the highest level in Maslow's hierarchy."
+    },
+    {
+      "question": "What is the key assumption of Theory X managers according to McGregor?",
+      "options": {
+        "A": "Employees are self-motivated",
+        "B": "Employees dislike work and need close supervision",
+        "C": "Employees seek responsibility",
+        "D": "Employees are driven by intrinsic rewards"
+      },
+      "answer": "B",
+      "explanation": "Theory X assumes workers are lazy, avoid responsibility, and must be controlled."
+    },
+    {
+      "question": "Which management skill becomes more important at higher levels of management?",
+      "options": {
+        "A": "Technical skills",
+        "B": "Conceptual skills",
+        "C": "Clerical skills",
+        "D": "Manual skills"
+      },
+      "answer": "B",
+      "explanation": "Conceptual skills—understanding the organization as a whole—are critical for top-level managers."
+    },
+    {
+      "question": "What does the term 'span of control' refer to?",
+      "options": {
+        "A": "The number of departments in an organization",
+        "B": "The number of employees a manager can effectively supervise",
+        "C": "The levels of hierarchy in the organization",
+        "D": "The geographic spread of a company"
+      },
+      "answer": "B",
+      "explanation": "Span of control defines how many subordinates a manager can directly manage effectively."
+    },
+    {
+      "question": "Which management theory focuses on the social and psychological needs of employees?",
+      "options": {
+        "A": "Scientific Management",
+        "B": "Administrative Theory",
+        "C": "Human Relations Theory",
+        "D": "Contingency Theory"
+      },
+      "answer": "C",
+      "explanation": "Human Relations Theory emphasizes the importance of social factors and employee well-being in productivity."
+    },
+    {
+      "question": "What is a major advantage of decentralization?",
+      "options": {
+        "A": "Faster decision-making at lower levels",
+        "B": "More control by top management",
+        "C": "Uniform decisions across the organization",
+        "D": "Reduced employee motivation"
+      },
+      "answer": "A",
+      "explanation": "Decentralization empowers lower-level managers, resulting in faster and more flexible decision-making."
+    },
+    {
+      "question": "What is the purpose of SWOT analysis in strategic planning?",
+      "options": {
+        "A": "To identify salaries and wages",
+        "B": "To analyze strengths, weaknesses, opportunities, and threats",
+        "C": "To monitor production costs",
+        "D": "To calculate marketing expenses"
+      },
+      "answer": "B",
+      "explanation": "SWOT analysis helps managers assess internal strengths and weaknesses, and external opportunities and threats."
+    },
+    {
+      "question": "Which leadership style gives complete freedom to subordinates in decision-making?",
+      "options": {
+        "A": "Autocratic",
+        "B": "Democratic",
+        "C": "Laissez-faire",
+        "D": "Transactional"
+      },
+      "answer": "C",
+      "explanation": "Laissez-faire leaders allow employees autonomy, providing minimal direction or supervision."
+    },
+    {
+      "question": "According to Mintzberg, which of the following is a decisional managerial role?",
+      "options": {
+        "A": "Figurehead",
+        "B": "Monitor",
+        "C": "Entrepreneur",
+        "D": "Spokesperson"
+      },
+      "answer": "C",
+      "explanation": "The 'entrepreneur' role involves initiating and managing change, a key decisional role in Mintzberg’s framework."
+    },
+    {
+      "question": "Which statement best describes the contingency approach?",
+      "options": {
+        "A": "There is one best way to manage",
+        "B": "Management depends on the situation",
+        "C": "Employees should always be closely monitored",
+        "D": "Managers should follow traditional hierarchies"
+      },
+      "answer": "B",
+      "explanation": "The contingency approach argues that management strategies should vary depending on situational factors."
+    },
+    {
+      "question": "What is the primary goal of performance appraisal?",
+      "options": {
+        "A": "To punish underperforming employees",
+        "B": "To evaluate employee performance and support development",
+        "C": "To reduce labor costs",
+        "D": "To eliminate redundancy"
+      },
+      "answer": "B",
+      "explanation": "Performance appraisals assess individual contributions and help plan for development and improvement."
+    }
+  ],
