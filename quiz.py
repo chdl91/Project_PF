@@ -13,7 +13,18 @@ def POM_questions():
     num_questions = 10
     random_questions = random.sample(POM_data, num_questions)
 
-# STOPPED HERE. CONTINUE WORK HERE (29.10.2025)
+
+# Trying to print the Questions and Options from the POM.json file
+for random_questions in POM_questions():
+    print(f"Question: "{question})
+    print(f"Options:{options}")
+
+while True:
+    answer = input("Enter your answer (A, B, C, D): ")
+    if answer in ['A', 'B', 'C', 'D']:
+        break
+    else:
+        print("Invalid input. Please enter A, B, C, or D.")
 
 
 # "Validate" Function to check the Quiz Answers if right or wrong.
@@ -23,7 +34,6 @@ def validate():
 
 # Function to determine that if the Answer is correct then we add 1 point to the score.
 # counter
-# test
 def Counter():
     if validate() == True:
         score = + 1
