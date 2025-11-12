@@ -16,8 +16,8 @@ def POM_questions():
 
 # Trying to print the Questions and Options from the POM.json file
 for random_questions in POM_questions():
-    print(f"Question: "{question})
-    print(f"Options:{options}")
+    print(f"Question: {question}")
+    print(f"Options: {options}")
 
 while True:
     answer = input("Enter your answer (A, B, C, D): ")
