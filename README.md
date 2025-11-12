@@ -59,6 +59,7 @@ The application interacts with the user via the console. Users can:
 
 
 ## ⚙️ Implementation
+- application architecture
 
 ### Technology
 - Python 3.x
