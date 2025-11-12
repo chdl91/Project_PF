@@ -8,7 +8,7 @@ POM_data = json.load(POM_json)
 DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
-for input_choice in ["1", "2", "3"]:
+while True:
     print("Welcome to the Quiz Application!")
     print("Menu")
     print("1. Principles of Management")
@@ -18,12 +18,15 @@ for input_choice in ["1", "2", "3"]:
         "Please select a subject by entering the corresponding number: ")
     if input_choice == '1':
         path = POM_data
+        break
     if input_choice == '2':
         path = DIB_data
+        break
     if input_choice == '3':
         exit()
     else:
-        print("Bias")
+        print("Bad Input. Please try again.")
+        continue
 
 
 def POM_questions():
