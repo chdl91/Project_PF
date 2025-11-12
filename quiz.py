@@ -8,6 +8,23 @@ POM_data = json.load(POM_json)
 DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
+for input_choice in ["1", "2", "3"]:
+    print("Welcome to the Quiz Application!")
+    print("Menu")
+    print("1. Principles of Management")
+    print("2. Digital Business")
+    print("3. Exit")
+    input_choice = input(
+        "Please select a subject by entering the corresponding number: ")
+    if input_choice == '1':
+        path = POM_data
+    if input_choice == '2':
+        path = DIB_data
+    if input_choice == '3':
+        exit()
+    else:
+        print("Bias")
+
 
 def POM_questions():
     num_questions = 10
@@ -15,9 +32,9 @@ def POM_questions():
 
 
 # Trying to print the Questions and Options from the POM.json file
-for random_questions in POM_questions():
-    print(f"Question: {question}")
-    print(f"Options: {options}")
+# for random_questions in POM_questions():
+   # print(f"Question: {"question"}")
+    # print(f"Options: {"options"}")
 
 while True:
     answer = input("Enter your answer (A, B, C, D): ")
