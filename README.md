@@ -59,7 +59,8 @@ The application interacts with the user via the console. Users can:
 
 
 ## ⚙️ Implementation
-- application architecture
+- application architecture path: 
+chdl91/Project_PF/Pictures/application.arcitecture_v1.jpg
 
 ### Technology
 - Python 3.x
