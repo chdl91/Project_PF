@@ -31,20 +31,21 @@ while True:
 
 def POM_questions():
     num_questions = 10
-    random_questions = random.sample(POM_data, num_questions)
+    random_questions = random.sample(path, num_questions)
+    return random_questions
 
 
 # Trying to print the Questions and Options from the POM.json file
-# for random_questions in POM_questions():
-   # print(f"Question: {"question"}")
-    # print(f"Options: {"options"}")
+for q in POM_questions():
+    print(f"Questions: {q['question']}")
+    print(f"Answers: {q['answers']}")
 
-while True:
-    answer = input("Enter your answer (A, B, C, D): ")
-    if answer in ['A', 'B', 'C', 'D']:
-        break
-    else:
-        print("Invalid input. Please enter A, B, C, or D.")
+# def while True:
+ # answer = input("Enter your answer (A, B, C, D): ")
+# if answer in ['A', 'B', 'C', 'D']:
+ #   break
+# else:
+   # print("Invalid input. Please enter A, B, C, or D.")
 
 
 # "Validate" Function to check the Quiz Answers if right or wrong.
