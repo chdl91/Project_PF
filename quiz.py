@@ -21,6 +21,13 @@ def validate():
     pass
 
 
+# Function to determine that if the Answer is correct then we add 1 point to the score.
+# counter
+def Counter():
+    if validate() == True:
+        score = + 1
+
+
 # Closing the POM.json and DIB.json files
 POM_json.close()
 DIB_json.close()
