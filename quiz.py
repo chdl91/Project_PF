@@ -8,57 +8,51 @@ POM_data = json.load(POM_json)
 DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
+
+def run_quiz(data):
+    """Run a quiz session on the provided data. Type 'menu' to return to the main menu."""
+    if not isinstance(data, list) or len(data) == 0:
+        print("No questions available.")
+        return
+
+    num_questions = min(10, len(data))
+    questions = random.sample(data, num_questions)
+
+    for q in questions:
+        print(f"\nQuestion: {q.get('question', '<no question>')}")
+        print(f"Answers: {q.get('answers', q.get('options', '<no answers>'))}")
+
+        while True:
+            answer = input(
+                "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu: ").strip()
+            if answer.lower() == 'menu':
+                print("Returning to menu...")
+                return  # return to the caller (the menu loop)
+            if answer in ['1', '2', '3', '4']:
+                break
+            print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
+
+
 while True:
-    print("Welcome to the Quiz Application!")
-    print("Menu")
+    print("\nWelcome to the Quiz Application!")
+    print("Please select a subject:")
     print("1. Principles of Management")
     print("2. Digital Business")
     print("3. Exit")
     input_choice = input(
-        "Please select a subject by entering the corresponding number: ")
+        "Please select a subject by entering the corresponding number: ").strip()
+
     if input_choice == '1':
-        path = POM_data
+        run_quiz(POM_data)
+        # returns here when user types 'menu' during run_quiz
+    elif input_choice == '2':
+        run_quiz(DIB_data)
+    elif input_choice == '3':
+        print("Goodbye.")
         break
-    if input_choice == '2':
-        path = DIB_data
-        break
-    if input_choice == '3':
-        exit()
     else:
         print("Bad Input. Please try again.")
         continue
-
-
-def POM_questions():
-    num_questions = 10
-    random_questions = random.sample(path, num_questions)
-    return random_questions
-
-
-# Trying to print the Questions and Options from the POM.json file
-for q in POM_questions():
-    print(f"Questions: {q['question']}")
-    print(f"Answers: {q['answers']}")
-
-# def while True:
- # answer = input("Enter your answer (A, B, C, D): ")
-# if answer in ['A', 'B', 'C', 'D']:
- #   break
-# else:
-   # print("Invalid input. Please enter A, B, C, or D.")
-
-
-# "Validate" Function to check the Quiz Answers if right or wrong.
-def validate():
-    pass
-
-
-# Function to determine that if the Answer is correct then we add 1 point to the score.
-# counter
-def Counter():
-    if validate() == True:
-        score = + 1
-
 
 # Closing the POM.json and DIB.json files
 POM_json.close()
