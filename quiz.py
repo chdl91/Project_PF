@@ -17,24 +17,38 @@ def run_quiz(data, per_question_timer=60):
         return
 
 
+# This function handles the timeout for each question
 signal.signal(signal.SIGALRM, _timeout_handler)
 
 num_questions = min(10, len(data))
 questions = random.sample(data, num_questions)
+collected_answers = []
 
 for q in questions:
     print(f"\nQuestion: {q.get('question', '<no question>')}\n")
     print(f"Answers: {q.get('answers', q.get('options', '<no answers>'))}")
 
-     while True:
-          answer = input(
-               "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu: ").strip()
-           if answer.lower() == 'menu':
-                print("Returning to menu...")
-                return  # return to the caller (the menu loop)
-            if answer in ['1', '2', '3', '4']:
-                break
-            print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
+    while True:  # FUCKING BOLLOCKS "UNEXPECTED INDENTATION ERROR" (23.11.2025)
+
+        try:
+            signal.alarm(per_question_timer)  # Set the alarm
+        answer = input(
+            "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu [{per_question_seconds}s]: ").strip()
+        signal.alarm(0)  # Disable the alarm after input is received
+        except TimeoutError:
+            print("\nTime's up! Moving to the next question.")
+            collected_answers.append(None)  # Record no answer
+            break  # Move to the next question on timeout
+
+        if answer.lower() == 'menu':
+            print("Returning to menu...")
+            signal.alarm(0)  # Disable any active alarm
+            return  # <-- must be inside the IF, not outside!
+
+        if answer in ['1', '2', '3', '4']:
+            break
+
+        print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
 
 
 while True:
