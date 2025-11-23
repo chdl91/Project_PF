@@ -37,8 +37,9 @@ def POM_questions():
 
 # Trying to print the Questions and Options from the POM.json file
 for q in POM_questions():
-    print(f"Questions: {q['question']}")
-    print(f"Answers: {q['answers']}")
+    print(f"Question:\n{q['question']}\n")
+    print(f"Answers: \n{q['answers']}")
+    input("\nPress ENTER for next question...\n")
 
 # def while True:
  # answer = input("Enter your answer (A, B, C, D): ")
