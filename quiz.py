@@ -1,5 +1,6 @@
 import json
 import random
+import signal
 
 # Opening and Loading the POM.json and DIB.json files
 POM_json = open("./Data/POM.json")
@@ -9,23 +10,26 @@ DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
 
-def run_quiz(data):
+def run_quiz(data, per_question_timer=60):
     """Run a quiz session on the provided data. Type 'menu' to return to the main menu."""
     if not isinstance(data, list) or len(data) == 0:
         print("No questions available.")
         return
 
-    num_questions = min(10, len(data))
-    questions = random.sample(data, num_questions)
 
-    for q in questions:
-        print(f"\nQuestion: {q.get('question', '<no question>')}")
-        print(f"Answers: {q.get('answers', q.get('options', '<no answers>'))}")
+signal.signal(signal.SIGALRM, _timeout_handler)
 
-        while True:
-            answer = input(
-                "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu: ").strip()
-            if answer.lower() == 'menu':
+num_questions = min(10, len(data))
+questions = random.sample(data, num_questions)
+
+for q in questions:
+    print(f"\nQuestion: {q.get('question', '<no question>')}\n")
+    print(f"Answers: {q.get('answers', q.get('options', '<no answers>'))}")
+
+     while True:
+          answer = input(
+               "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu: ").strip()
+           if answer.lower() == 'menu':
                 print("Returning to menu...")
                 return  # return to the caller (the menu loop)
             if answer in ['1', '2', '3', '4']:
