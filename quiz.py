@@ -29,12 +29,11 @@ for q in questions:
     print(f"Answers: {q.get('answers', q.get('options', '<no answers>'))}")
 
     while True:  # FUCKING BOLLOCKS "UNEXPECTED INDENTATION ERROR" (23.11.2025)
-
         try:
             signal.alarm(per_question_timer)  # Set the alarm
-        answer = input(
+            answer = input(
             "Enter your answer (1, 2, 3, 4) or type 'menu' to return to menu [{per_question_seconds}s]: ").strip()
-        signal.alarm(0)  # Disable the alarm after input is received
+            signal.alarm(0)  # Disable the alarm after input is received
         except TimeoutError:
             print("\nTime's up! Moving to the next question.")
             collected_answers.append(None)  # Record no answer
