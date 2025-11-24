@@ -10,8 +10,12 @@ DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
 # This function handles the timeout for each question
-def _timeout_handler(signum, frame): 
+
+
+def _timeout_handler(signum, frame):
     raise TimeoutError("Time is up")
+
+
 signal.signal(signal.SIGALRM, _timeout_handler)
 
 
@@ -20,7 +24,7 @@ def run_quiz(data, per_question_timer=60):
     if not isinstance(data, list) or len(data) == 0:
         print("No questions available.")
         return
-    
+
     num_questions = min(10, len(data))
     questions = random.sample(data, num_questions)
     collected_answers = []
