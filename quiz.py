@@ -9,9 +9,25 @@ POM_data = json.load(POM_json)
 DIB_json = open("./Data/DIB.json")
 DIB_data = json.load(DIB_json)
 
+
+def validate_answer(question, user_input):
+    """
+    Validate a user's answer for a single question dict.
+    Returns:
+      - True if correct,
+      - False if incorrect,
+      - None if no correct answer is supplied.
+    Assumes answers are integer strings '1'..'4' in user_input and integer in JSON.
+    """
+    # find the key in the question data
+    correct = next((question[k] for k in (
+        "correct_answer", "answer", "correct") if k in question), None)
+    if correct is None:
+        return None
+    return str(correct).strip() == str(user_input).strip()
+
+
 # This function handles the timeout for each question
-
-
 def _timeout_handler(signum, frame):
     raise TimeoutError("Time is up")
 
@@ -28,10 +44,13 @@ def run_quiz(data, per_question_timer=60):
     num_questions = min(10, len(data))
     questions = random.sample(data, num_questions)
     collected_answers = []
+    score = 0
+
     for q in questions:
         print(f"\nQuestion: {q.get('question', '<no question>')}\n")
         answers = q.get('answers', q.get('options', []))
-        # Normalize answers into a list so we can print them line by line
+        explanation = q.get('explanation')
+       # Normalize answers into a list so we can print them line by line
         if isinstance(answers, dict):
             answers_list = list(answers.values())
         else:
@@ -43,6 +62,7 @@ def run_quiz(data, per_question_timer=60):
                 print(f"  {idx}. {opt}")
         else:
             print(f"Answers: {answers_list}")
+
         # For each question: wait for user input before continuing
         while True:
             try:
@@ -67,9 +87,39 @@ def run_quiz(data, per_question_timer=60):
 
             if answer in ['1', '2', '3', '4']:
                 collected_answers.append(answer)
+                validated = validate_answer(q, answer)
+                if validated is True:
+                    score += 1
+                    print(f"Correct! Score: {score}")
+                    print(f"Explanation: {explanation}")
+                elif validated is False:
+                    correct = next(
+                        (q[k] for k in ("correct_answer", "answer", "correct") if k in q), None)
+                    # Try to get the correct answer's text if answers_list present
+                    correct_text = None
+                    if correct and isinstance(answers_list, list):
+                        try:
+                            idx = int(correct) - 1
+                            if 0 <= idx < len(answers_list):
+                                correct_text = answers_list[idx]
+                        except Exception:
+                            correct_text = None
+                    if correct_text:
+                        print(
+                            f"\nIncorrect. Correct answer: {correct_text} ({correct})")
+                        print(f"\nExplanation: {explanation}")
+                    else:
+                        print(f"\nIncorrect. Correct answer: {correct}")
+                        print(f"\nExplanation: {explanation}")
+                else:
+                    print("\nNo correct answer provided for this question; not scored.")
+                    print(f"\nExplanation: {explanation}")
                 break
 
             print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
+
+    print(f"\nSession finished — score: {score}/{num_questions}")
+    return score
 
 
 while True:
@@ -79,11 +129,11 @@ while True:
     print("2. Digital Business")
     print("3. Exit")
     input_choice = input(
-        "Please select a subject by entering the corresponding number: ").strip()
+        "Please select a subject by entering the corresponding number: "
+    ).strip()
 
     if input_choice == '1':
         run_quiz(POM_data)
-        # returns here when user types 'menu' during run_quiz
     elif input_choice == '2':
         run_quiz(DIB_data)
     elif input_choice == '3':
@@ -92,6 +142,7 @@ while True:
     else:
         print("Bad Input. Please try again.")
         continue
+
 
 # Closing the POM.json and DIB.json files
 POM_json.close()
