@@ -143,6 +143,9 @@ while True:
         print("Bad Input. Please try again.")
         continue
 
+# Starting the Quiz Application from main.py
+if __name__ == "__main__":
+    start_menu()
 
 # Closing the POM.json and DIB.json files
 POM_json.close()
