@@ -21,7 +21,7 @@ def validate_answer(question, user_input):
       - None if no correct answer is supplied.
     Assumes answers are integer strings '1'..'4' in user_input and integer in JSON.
     """
-    # find the key in the question data
+    # This finds the key in the question data set
     correct = next((question[k] for k in (
         "correct_answer", "answer", "correct") if k in question), None)
     if correct is None:
@@ -36,29 +36,33 @@ def _timeout_handler(signum, frame):
 
 signal.signal(signal.SIGALRM, _timeout_handler)
 
+# This function exports the results and score to results.csv
+
 
 def export_results_to_csv(subject, score, filename="results.csv"):
 
-    # create a new row with the quiz results
+    # Create a new row with the quiz results
     header = ["subject", "score", "timestamp"]
 
-    # timestamp configuration
+    # Timestamp configuration
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # checks if the file exists
+    # Checks if the file exists
     try:
         with open(filename, "r", newline="") as f:
             file_exists = True
     except FileNotFoundError:
         file_exists = False
 
-    # write result to a row in CSV result file
+    # Write result to a row in results.csv
     with open(filename, "a", newline="") as f:
         writer = csv.writer(f)
         if not file_exists:
             writer.writerow(header)
 
         writer.writerow([timestamp, subject, score,])
+
+# This bad boy runs the quiz
 
 
 def run_quiz(data, per_question_timer=60):
@@ -111,6 +115,7 @@ def run_quiz(data, per_question_timer=60):
                 print("Returning to menu...")
                 return
 
+            # Validating the user's answer and giving an explanation
             if answer in ['1', '2', '3', '4']:
                 collected_answers.append(answer)
                 validated = validate_answer(q, answer)
@@ -149,6 +154,7 @@ def run_quiz(data, per_question_timer=60):
     return score
 
 
+# This is the Main Menu Loop
 while True:
     print("\nWelcome to the Quiz Application!")
     print("Please select a subject:")
