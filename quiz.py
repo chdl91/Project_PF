@@ -3,6 +3,7 @@ import random
 import signal
 import csv
 import datetime
+import zoneinfo
 
 # Opening and Loading the POM.json and DIB.json files
 POM_json = open("./Data/POM.json")
@@ -41,26 +42,29 @@ signal.signal(signal.SIGALRM, _timeout_handler)
 
 def export_results_to_csv(subject, score, filename="results.csv"):
 
-    # Create a new row with the quiz results
-    header = ["subject", "score", "timestamp"]
+    header = ["result", "subject", "time", "date"]
 
-    # Timestamp configuration
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    #timestemp in Europe/Zurich timezone configuration
+    tz = zoneinfo.ZoneInfo("Europe/Zurich")
+    now = datetime.datetime.now(tz)
+    time_str = now.strftime("%H:%M:%S")
+    date_str = now.strftime("%Y-%m-%d")
 
-    # Checks if the file exists
+    # Check if file exists 
     try:
         with open(filename, "r", newline="") as f:
             file_exists = True
     except FileNotFoundError:
         file_exists = False
 
-    # Write result to a row in results.csv
     with open(filename, "a", newline="") as f:
         writer = csv.writer(f)
-        if not file_exists:
-            writer.writerow(header)
 
-        writer.writerow([timestamp, subject, score,])
+        if not file_exists:
+            writer.writerow(header)          # write header once
+
+        writer.writerow([score, subject, time_str, date_str])  # ALWAYS write row
+
 
 # This bad boy runs the quiz
 
