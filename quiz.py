@@ -1,6 +1,8 @@
 import json
 import random
 import signal
+import csv
+import datetime
 
 # Opening and Loading the POM.json and DIB.json files
 POM_json = open("./Data/POM.json")
@@ -33,6 +35,30 @@ def _timeout_handler(signum, frame):
 
 
 signal.signal(signal.SIGALRM, _timeout_handler)
+
+
+def export_results_to_csv(subject, score, filename="results.csv"):
+
+    # create a new row with the quiz results
+    header = ["subject", "score", "timestamp"]
+
+    # timestamp configuration
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # checks if the file exists
+    try:
+        with open(filename, "r", newline="") as f:
+            file_exists = True
+    except FileNotFoundError:
+        file_exists = False
+
+    # write result to a row in CSV result file
+    with open(filename, "a", newline="") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(header)
+
+        writer.writerow([timestamp, subject, score,])
 
 
 def run_quiz(data, per_question_timer=60):
@@ -119,6 +145,7 @@ def run_quiz(data, per_question_timer=60):
             print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
 
     print(f"\nSession finished — score: {score}/{num_questions}")
+
     return score
 
 
@@ -133,9 +160,13 @@ while True:
     ).strip()
 
     if input_choice == '1':
-        run_quiz(POM_data)
+        score = run_quiz(POM_data)
+        if score is not None:
+            export_results_to_csv("Principles of Management", score)
     elif input_choice == '2':
-        run_quiz(DIB_data)
+        score = run_quiz(DIB_data)
+    if score is not None:
+        export_results_to_csv("Digital Business", score)
     elif input_choice == '3':
         print("Goodbye.")
         break
