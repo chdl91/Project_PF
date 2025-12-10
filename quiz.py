@@ -175,16 +175,23 @@ def start_menu():
             score = run_quiz(POM_data)
             if score is not None:
                 export_results_to_csv("Principles of Management", score)
+                if score == 0:
+                    print("You scored 0 points. Better luck next time!")
+                    export_results_to_csv("Principles of Management", score)
         elif input_choice == '2':
             score = run_quiz(DIB_data)
-        if score is not None:
-            export_results_to_csv("Digital Business", score)
+            if score is not None:
+                export_results_to_csv("Digital Business", score)
+            if score == 0:
+                print("You scored 0 points. Better luck next time!")
+                export_results_to_csv("Digital Business", score)
         elif input_choice == '3':
             print("Goodbye.")
             break
         else:
             print("Bad Input. Please try again.")
             continue
+
 
 # Closing the POM.json and DIB.json files
 POM_json.close()
