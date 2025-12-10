@@ -1,8 +1,5 @@
-# Starting the Quiz Application
+# Starting the Quiz Application2
 from quiz import start_menu
 
-while True:
-    if __name__ == "__main__":
-        start_menu()
-    else:
-        break
+if __name__ == "__main__":
+    start_menu()
