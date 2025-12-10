@@ -1,4 +1,4 @@
-# Starting the Quiz Application2
+# Starting the Quiz Application
 from quiz import start_menu
 
 if __name__ == "__main__":

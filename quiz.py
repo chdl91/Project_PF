@@ -32,7 +32,7 @@ def validate_answer(question, user_input):
 
 # This function handles the timeout for each question
 def _timeout_handler(signum, frame):
-    raise TimeoutError("Time is up")
+    raise TimeoutError()
 
 
 signal.signal(signal.SIGALRM, _timeout_handler)
@@ -43,7 +43,7 @@ signal.signal(signal.SIGALRM, _timeout_handler)
 def export_results_to_csv(subject, score, total_questions=None, filename="results.csv"):
     header = ["result", "subject", "time", "date"]
 
-    # timestemp in Europe/Zurich timezone configuration
+    # timestamp in Europe/Zurich timezone configuration
     tz = zoneinfo.ZoneInfo("Europe/Zurich")
     now = datetime.datetime.now(tz)
     time_str = now.strftime("%H:%M:%S")
@@ -70,7 +70,6 @@ def export_results_to_csv(subject, score, total_questions=None, filename="result
         writer = csv.writer(f)
         if not file_exists:
             writer.writerow(header)          # write header once
-        # ALWAYS write row
         writer.writerow([result_text, subject, time_str, date_str])
 
 
@@ -133,8 +132,8 @@ def run_quiz(data, per_question_timer=60):
                 validated = validate_answer(q, answer)
                 if validated is True:
                     score += 1
-                    print(f"Correct! Score: {score}")
-                    print(f"Explanation: {explanation}")
+                    print(f"\nCorrect! Score: {score}")
+                    print(f"\nExplanation: {explanation}")
                 elif validated is False:
                     correct = next(
                         (q[k] for k in ("correct_answer", "answer", "correct") if k in q), None)
