@@ -1,4 +1,4 @@
-# FHNW Big snek quiz (Working title)
+# FHNW Big Study Quiz
 
 This project is intended to:
 
@@ -27,7 +27,7 @@ This project is intended to:
 3. As an Admin, I want to add and remove questions, in order to keep the quiz relevant.
 
 **Use cases:**
-- Answer Questions (from database.json)
+- Answer Questions (from POM.json and DIB.json)
 - Show Grade / Points / Percentage (to results.csv)
 - Return to Menu at any point in time
 - 
@@ -49,35 +49,61 @@ Each app must meet the following three criteria in order to be accepted (see als
 
 The application interacts with the user via the console. Users can:
 - Answer Questions
-- Choose chapters
+- Choose chapters (E.g.: Subject)
 - Receive a point total
-- return to the menu
+- Return to the menu
 - Stop the quiz
 
 
 ### 2. Data Validation
 
 - The data validation is performed in quiz.py on line 123. 
-- Comparing the user input of [1,2,3,4] with the listed "correct_answer" in either DB.json or POM.json-
-- Additionally, the validation function will issue an explanation to the user as to why to why their input was incorrect. The "correct_text" and "explanation" handles this. 
+- Comparing the user input of [1,2,3,4] with the listed "correct_answer" in either DIB.json or POM.json
+- Additionally, the validation function will issue an explanation to the user as to why their input was incorrect. The "correct_text" and "explanation" handles this. 
+- Set Failsafes incase elements are missing in the databanks 
+- 
 
 ### 3. File Processing
-
+| Input file  | Our databanks (DIB.json and POM.json) are 
+|             | read on startup of the programm
+|-------------------------------------------------------------------------|
+| Output file | The results.csv is the output
+|-------------------------------------------------------------------------|
+| Explanation | The individual questions are read from the input file
+|             | compared with the user's input (choice of answers) and 
+|             | then validated and a result is created as an output. 
 
 ## ⚙️ Implementation
 - application architecture path: 
 chdl91/Project_PF/Pictures/application.arcitecture_v1.jpg
 
 ### Technology
-- Python 3.x
+- Python 3.11.14
 - Environment: GitHub Codespaces
 - No external libraries
 
 ### 📂 Repository Structure
+PROJECT_PF
+    - .devcontainer
+        - devcontainer.json
+        - Dockerfile
+    - Data
+        - DIB.json
+        - POM.json
+    - Pictures
+        - application.arcitecture_v1.jpg
+    - .gitignore
+    - main.py
+    - quiz.py
+    - README.md
+    - requirements.txt
+    - (results.csv)
 
 ### How to Run
+1) Open Repository in Github Codespacces
+2) Open the Terminal
+3) Run: python3 main.py
 
-### Libraries Used
 
 
 ## 👥 Team & Contributions
@@ -96,12 +122,11 @@ chdl91/Project_PF/Pictures/application.arcitecture_v1.jpg
 |                   |          | 2) Correction of Steven's code (counter.py & validation)
 |                   |          | 3) Added the Application Architecture_v1 in Pictures
 |                   |          | 4) Created start menu with input choices
-|                   |          | 5) Created gitignore
+|                   |          | 5) Created .gitignore with help of Phillip Gachnang
 |                   |          | 6) Added results.csv 
 |                   |          | 7) Added Timestamp and fix for UTC+0 time
-|                   |          | 8) 
 |                   |          | 
-| Christian Lehmann | Master   | 1) Creation of DB.json and POM.json (Databank)
+| Christian Lehmann | Master   | 1) Creation of DIB.json and POM.json (Databank)
 |                   |          | 2) Creation of quiz.py 
 |                   |          | 3) Expanded the size of questions in the databank
 |                   |          | 4) Overall Troubleshooting of Noe's and Steven's code
