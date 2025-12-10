@@ -44,13 +44,13 @@ def export_results_to_csv(subject, score, filename="results.csv"):
 
     header = ["result", "subject", "time", "date"]
 
-    #timestemp in Europe/Zurich timezone configuration
+    # timestemp in Europe/Zurich timezone configuration
     tz = zoneinfo.ZoneInfo("Europe/Zurich")
     now = datetime.datetime.now(tz)
     time_str = now.strftime("%H:%M:%S")
     date_str = now.strftime("%Y-%m-%d")
 
-    # Check if file exists 
+    # Check if file exists
     try:
         with open(filename, "r", newline="") as f:
             file_exists = True
@@ -63,7 +63,8 @@ def export_results_to_csv(subject, score, filename="results.csv"):
         if not file_exists:
             writer.writerow(header)          # write header once
 
-        writer.writerow([score, subject, time_str, date_str])  # ALWAYS write row
+        # ALWAYS write row
+        writer.writerow([score, subject, time_str, date_str])
 
 
 # This bad boy runs the quiz
@@ -159,34 +160,31 @@ def run_quiz(data, per_question_timer=60):
 
 
 # This is the Main Menu Loop
-while True:
-    print("\nWelcome to the Quiz Application!")
-    print("Please select a subject:")
-    print("1. Principles of Management")
-    print("2. Digital Business")
-    print("3. Exit")
-    input_choice = input(
-        "Please select a subject by entering the corresponding number: "
-    ).strip()
+def start_menu():
+    while True:
+        print("\nWelcome to the Quiz Application!")
+        print("Please select a subject:")
+        print("1. Principles of Management")
+        print("2. Digital Business")
+        print("3. Exit")
+        input_choice = input(
+            "Please select a subject by entering the corresponding number: "
+        ).strip()
 
-    if input_choice == '1':
-        score = run_quiz(POM_data)
+        if input_choice == '1':
+            score = run_quiz(POM_data)
+            if score is not None:
+                export_results_to_csv("Principles of Management", score)
+        elif input_choice == '2':
+            score = run_quiz(DIB_data)
         if score is not None:
-            export_results_to_csv("Principles of Management", score)
-    elif input_choice == '2':
-        score = run_quiz(DIB_data)
-    if score is not None:
-        export_results_to_csv("Digital Business", score)
-    elif input_choice == '3':
-        print("Goodbye.")
-        break
-    else:
-        print("Bad Input. Please try again.")
-        continue
-
-# Starting the Quiz Application from main.py
-if __name__ == "__main__":
-    start_menu()
+            export_results_to_csv("Digital Business", score)
+        elif input_choice == '3':
+            print("Goodbye.")
+            break
+        else:
+            print("Bad Input. Please try again.")
+            continue
 
 # Closing the POM.json and DIB.json files
 POM_json.close()

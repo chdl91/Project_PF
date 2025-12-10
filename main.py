@@ -1,4 +1,3 @@
-
 # Starting the Quiz Application
 from quiz import start_menu
 
