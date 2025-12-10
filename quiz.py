@@ -40,8 +40,7 @@ signal.signal(signal.SIGALRM, _timeout_handler)
 # This function exports the results and score to results.csv
 
 
-def export_results_to_csv(subject, score, filename="results.csv"):
-
+def export_results_to_csv(subject, score, total_questions=None, filename="results.csv"):
     header = ["result", "subject", "time", "date"]
 
     # timestemp in Europe/Zurich timezone configuration
@@ -49,6 +48,16 @@ def export_results_to_csv(subject, score, filename="results.csv"):
     now = datetime.datetime.now(tz)
     time_str = now.strftime("%H:%M:%S")
     date_str = now.strftime("%Y-%m-%d")
+
+    # prettier result formatting: "score/total (XX%)" when total provided
+    if total_questions:
+        try:
+            pct = (int(score) / int(total_questions)) * 100
+            result_text = f"{score}/{total_questions} ({pct:.0f}%)"
+        except Exception:
+            result_text = f"{score}/{total_questions}"
+    else:
+        result_text = str(score)
 
     # Check if file exists
     try:
@@ -59,12 +68,10 @@ def export_results_to_csv(subject, score, filename="results.csv"):
 
     with open(filename, "a", newline="") as f:
         writer = csv.writer(f)
-
         if not file_exists:
             writer.writerow(header)          # write header once
-
         # ALWAYS write row
-        writer.writerow([score, subject, time_str, date_str])
+        writer.writerow([result_text, subject, time_str, date_str])
 
 
 # This bad boy runs the quiz
@@ -155,8 +162,7 @@ def run_quiz(data, per_question_timer=60):
             print("Invalid input. Please enter 1, 2, 3, 4, or 'menu'.")
 
     print(f"\nSession finished — score: {score}/{num_questions}")
-
-    return score
+    return score, num_questions
 
 
 # This is the Main Menu Loop
@@ -170,21 +176,22 @@ def start_menu():
         input_choice = input(
             "Please select a subject by entering the corresponding number: "
         ).strip()
-
         if input_choice == '1':
-            score = run_quiz(POM_data)
-            if score is not None:
-                export_results_to_csv("Principles of Management", score)
+            result = run_quiz(POM_data)
+            if result is not None:
+                score, total = result
+            export_results_to_csv("Principles of Management", score, total)
         elif input_choice == '2':
-            score = run_quiz(DIB_data)
-            if score is not None:
-                export_results_to_csv("Digital Business", score)
+            result = run_quiz(DIB_data)
+            if result is not None:
+                score, total = result
+                export_results_to_csv("Digital Business", score, total)
         elif input_choice == '3':
             print("Goodbye.")
             break
         else:
             print("Bad Input. Please try again.")
-            continue
+        continue
 
 
 # Closing the POM.json and DIB.json files
