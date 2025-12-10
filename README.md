@@ -29,6 +29,8 @@ This project is intended to:
 **Use cases:**
 - Answer Questions (from database.json)
 - Show Grade / Points / Percentage (to results.csv)
+- Return to Menu at any point in time
+- 
 
 
 ---
@@ -49,11 +51,15 @@ The application interacts with the user via the console. Users can:
 - Answer Questions
 - Choose chapters
 - Receive a point total
+- return to the menu
 - Stop the quiz
 
 
 ### 2. Data Validation
 
+- The data validation is performed in quiz.py on line 123. 
+- Comparing the user input of [1,2,3,4] with the listed "correct_answer" in either DB.json or POM.json-
+- Additionally, the validation function will issue an explanation to the user as to why to why their input was incorrect. The "correct_text" and "explanation" handles this. 
 
 ### 3. File Processing
 
@@ -76,13 +82,32 @@ chdl91/Project_PF/Pictures/application.arcitecture_v1.jpg
 
 ## 👥 Team & Contributions
 
->
-
-| Name       | Contribution                                 |
-|------------|----------------------------------------------|
-| Noe Brönnimann	| 		tbd|
-| Steven Joggi  	|  		tbd|
-| Christian Lehmann |   	tbd|
+| Name              | Role     | Contribution                               |
+|-------------------|----------|--------------------------------------------|
+| Steven Joggi  	| Support  | 1) Added further imports and file_path to the databanks
+|                   |          | 2) Proofreading and added comments for structure
+|                   |          | 3) Added counter.py and begun work on the validation
+|                   |          | 4) Added Timer including "signal"
+|                   |          | 5) Added call in main.py for quiz.py
+|                   |          | 6) Added the requirements.txt
+|                   |          | 7) Continuation of README.md 
+|                   |          |  
+| Noe Brönnimann 	| VP 	   | 1) Added databank json loader and file.close()
+|                   |          | 2) Correction of Steven's code (counter.py & validation)
+|                   |          | 3) Added the Application Architecture_v1 in Pictures
+|                   |          | 4) Created start menu with input choices
+|                   |          | 5) Created gitignore
+|                   |          | 6) Added results.csv 
+|                   |          | 7) Added Timestamp and fix for UTC+0 time
+|                   |          | 8) 
+|                   |          | 
+| Christian Lehmann | Master   | 1) Creation of DB.json and POM.json (Databank)
+|                   |          | 2) Creation of quiz.py 
+|                   |          | 3) Expanded the size of questions in the databank
+|                   |          | 4) Overall Troubleshooting of Noe's and Steven's code
+|                   |          | 5) Added validation method and correct scoring
+|                   |          | 6) First Version of README.md 
+|                   |          | 7) Improvement of results.csv
 
 
 ## 🤝 Contributing
